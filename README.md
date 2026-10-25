@@ -87,4 +87,6 @@ curl -sL -o "ref/base_#1.obj" "https://raw.githubusercontent.com/google-deepmind
 uv run floor_check.py
 ```
 
-`ref/head_shell_8000.stl` is derived from Unitree's Go2 model via MuJoCo Menagerie; see `ref/LICENSE-unitree-go2`.
+## License
+
+[GPL-3.0](LICENSE). `ref/head_shell_8000.stl` is derived from Unitree's Go2 model via MuJoCo Menagerie and keeps its BSD license, see [`ref/LICENSE-unitree-go2`](ref/LICENSE-unitree-go2).
