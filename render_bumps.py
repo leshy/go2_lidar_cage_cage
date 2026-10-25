@@ -3,9 +3,9 @@
 # ///
 """3D renders of the bump FEA: deformed shape (exaggerated) coloured by von Mises, undeformed ghost, load arrow.
 
-    uv run render_bumps.py [grip|clamp|bolts]   # reads $FEA_OUT/fields.npz -> $FEA_OUT/render_<hold>.png
+    uv run render_bumps.py      # reads $FEA_OUT/fields.npz -> $FEA_OUT/render.png
 """
-import json, os, sys
+import json, os
 from pathlib import Path
 import numpy as np
 import matplotlib; matplotlib.use("Agg")
@@ -13,7 +13,6 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 S_Z = 25.0                                   # PETG across-layer strength, colour scale max
-hold = sys.argv[1] if len(sys.argv) > 1 else "clamp"
 out = Path(__file__).parent / os.environ.get("FEA_OUT", "outputs/fea")
 z = np.load(out / "fields.npz")
 p, bf, bf_el = z["p"], z["bf"], z["bf_el"]
@@ -22,7 +21,7 @@ summ = json.loads(str(z["summary"])) if "summary" in z.files else {}
 names = list(cases)
 fig = plt.figure(figsize=(5.2 * len(names), 10.5))
 for j, name in enumerate(names):
-    u, s = z[f"{name}__{hold}__u"], z[f"{name}__{hold}__s"]
+    u, s = z[f"{name}__u"], z[f"{name}__s"]
     dmax = np.linalg.norm(u, axis=1).max()
     k = 6.0 / dmax if dmax > 0 else 1.0       # exaggerate so the worst point moves ~6 mm on screen
     q = p + k * u
@@ -37,13 +36,13 @@ for j, name in enumerate(names):
         ax.set_xlim(-65, 75); ax.set_ylim(-70, 70); ax.set_zlim(-20, 75); ax.set_box_aspect((140, 140, 95))
         ax.view_init(el, az); ax.set_axis_off()
         if i == 0:
-            r = summ.get(f"{name}/{hold}", {})
+            r = summ.get(name, {})
             rx = r.get("reactions_N", {})
-            ax.set_title(f"{name} [{hold}]  hit {np.linalg.norm(Fv):.0f} N\n"
+            ax.set_title(f"{name}  hit {np.linalg.norm(Fv):.0f} N\n"
                          f"p99.9 {np.percentile(s, 99.9):.0f} MPa, at hit {r.get('defl_mm', 0):.1f} mm (shown x{k:.1f})\n"
                          f"cracks ~{r.get('crack_N', 0)} N, touches cap ~{r.get('touch_N')} N\n"
                          + "  ".join(f"{a} {v} N" for a, v in rx.items()), fontsize=9)
 sm = plt.cm.ScalarMappable(cmap="inferno", norm=plt.Normalize(0, S_Z))
 fig.colorbar(sm, ax=fig.axes, shrink=0.5, label=f"von Mises MPa (white/yellow >= {S_Z} = PETG layer strength) @ 300 N")
-fig.savefig(out / f"render_{hold}.png", dpi=75, bbox_inches="tight")
-print(out / f"render_{hold}.png")
+fig.savefig(out / "render.png", dpi=75, bbox_inches="tight")
+print(out / "render.png")

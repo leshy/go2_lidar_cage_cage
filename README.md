@@ -6,7 +6,7 @@ The stock black cage is bolted to the lidar's **spinning** head. When the robot 
 
 | | |
 |---|---|
-| ![iso](docs/cage_iso_ne.png) | ![iso](docs/cage_iso_sw.png) |
+| ![side](docs/cage_side.png) | ![iso](docs/cage_iso_sw.png) |
 
 One printed piece:
 
@@ -43,33 +43,29 @@ When the robot lies down, it rests on its four belly charging contacts, nose up 
 
 ## Bump tests (FEA)
 
-Linear-static FEA of a 300 N hit at five spots, PETG (`fea_bumps.py`):
+Linear-static FEA of a 300 N hit at five spots, PETG, pinch clamps gripping the housing (`fea_bumps.py`):
 
 ```sh
 khana export assembly.py:build_print
 MKL_NUM_THREADS=4 FEA_OUT=outputs/fea uv run fea_bumps.py outputs/assembly-build_print/assembly.step
-FEA_OUT=outputs/fea uv run render_bumps.py grip
+FEA_OUT=outputs/fea uv run render_bumps.py
 ```
 
 The table gives the hit force at which the cage first cracks (p99.9 stress reaches 25 MPa) and at which it bends onto the spinning cap. For reference, the robot weighs about 150 N.
 
-| hit | clamp tight: cracks | clamp tight: touches cap | clamp slipping: cracks | clamp slipping: touches cap |
-|---|---|---|---|---|
-| front, mid-height | 432 N | 1028 N | 263 N | 571 N |
-| front, upper corner (45°) | 421 N | 1064 N | 126 N | 117 N |
-| straight down on top | 469 N | 1553 N | 98 N | 84 N |
-| side, mid-height | 362 N | 756 N | 225 N | 408 N |
-| side, upper corner (45°) | 431 N | 781 N | 130 N | 107 N |
+| hit | cracks | touches cap |
+|---|---|---|
+| front, mid-height | 432 N | 1028 N |
+| front, upper corner (45°) | 421 N | 1064 N |
+| straight down on top | 469 N | 1553 N |
+| side, mid-height | 362 N | 756 N |
+| side, upper corner (45°) | 431 N | 781 N |
 
 "Touches cap" assumes 4 mm of clearance. At the crown it is 3 mm, so scale the top hits by about ¾.
 
-A firm clamp matters. With the ring gripping, a hit spreads into the housing and the cage takes about 3× the robot's weight anywhere. If the ring can slip, hits on the top bend the hoops onto the cap at about 100 N. A strip of rubber or TPU inside the bore helps if it ever slips. Full results are in `docs/fea_results.json`.
+The cage takes about 2.5–3× the robot's weight anywhere before cracking. Full results are in `docs/fea_results.json`.
 
-**clamp tight:**
-![grip](docs/fea_grip.png)
-
-**clamp slipping:**
-![clamp](docs/fea_clamp.png)
+![fea](docs/fea.png)
 
 ## Rebuild / modify
 
