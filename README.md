@@ -83,7 +83,7 @@ khana export assembly.py:build_print     # -> outputs/assembly-build_print/assem
 `floor_check.py` and `ref/remesh_head.py` need the Go2 meshes from [mujoco_menagerie](https://github.com/google-deepmind/mujoco_menagerie/tree/main/unitree_go2):
 
 ```sh
-for i in 0 1 2 3 4; do curl -sLo ref/base_$i.obj https://raw.githubusercontent.com/google-deepmind/mujoco_menagerie/main/unitree_go2/assets/base_$i.obj; done
+curl -sL -o "ref/base_#1.obj" "https://raw.githubusercontent.com/google-deepmind/mujoco_menagerie/main/unitree_go2/assets/base_[0-4].obj"
 uv run floor_check.py
 ```
 
