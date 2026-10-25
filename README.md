@@ -73,11 +73,16 @@ A firm clamp matters. With the ring gripping, a hit spreads into the housing and
 
 ## Rebuild / modify
 
-Install [cad-khana](https://github.com/cyberchitta/cad-khana); it brings build123d with it.
+Install [cad-khana](https://github.com/cyberchitta/cad-khana) (it brings build123d) with the [OCP CAD Viewer](https://github.com/bernhard-42/vscode-ocp-cad-viewer) in the same environment:
+
+```sh
+uv tool install --python 3.13 --with ocp-vscode git+https://github.com/cyberchitta/cad-khana
+~/.local/share/uv/tools/cad-khana/bin/python -m ocp_viewer   # viewer at http://localhost:3939/viewer, leave running
+```
 
 ```sh
 khana check  assembly.py                 # clearance asserts vs the spinning cage, one solid
-khana view   assembly.py:build_view      # browser viewer (head mesh + floor shown)
+khana view   assembly.py:build_view      # into the viewer (head mesh + floor shown)
 khana export assembly.py:build_print     # -> outputs/assembly-build_print/assembly.{stl,step}
 ```
 
