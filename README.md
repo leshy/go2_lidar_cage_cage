@@ -89,21 +89,4 @@ for i in 0 1 2 3 4; do curl -sLo ref/base_$i.obj https://raw.githubusercontent.c
 uv run floor_check.py
 ```
 
-### Frame and measured numbers
-
-The model works in the lidar frame (mm):
-
-- **Origin:** the URDF radar origin.
-- **+Z:** the lidar axis, pointing out of the head.
-- **+X:** toward the body, along the chin bracket.
-
-| measured on the robot | value |
-|---|---|
-| Spinning cap | 84 mm diameter, 56 mm tall above the rim |
-| Grey housing | 87 mm diameter for 8 mm below the rim |
-| Chin bracket | 35 mm wide, M4 screws 20 mm apart |
-| M4 position | 56.5 mm from the lidar axis (fitted on test prints) |
-
-The bracket slope (20.4°) comes from the mesh and is confirmed by fit.
-
 `ref/head_shell_8000.stl` is derived from Unitree's Go2 model via MuJoCo Menagerie; see `ref/LICENSE-unitree-go2`.
