@@ -97,4 +97,4 @@ uv run floor_check.py
 
 ## License
 
-[GPL-3.0](LICENSE), except `docs/yodawg.jpg` (the "Yo Dawg" meme template photo). `ref/head_shell_8000.stl` is derived from Unitree's Go2 model via MuJoCo Menagerie and keeps its BSD license, see [`ref/LICENSE-unitree-go2`](ref/LICENSE-unitree-go2).
+[GPL-3.0](LICENSE). `ref/head_shell_8000.stl` is derived from Unitree's Go2 model via MuJoCo Menagerie and keeps its BSD license, see [`ref/LICENSE-unitree-go2`](ref/LICENSE-unitree-go2).
