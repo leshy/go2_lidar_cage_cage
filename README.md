@@ -1,5 +1,7 @@
 # Go2 lidar cage cage
 
+![yo dawg](docs/yodawg.jpg)
+
 A fixed, 3D-printed outer cage for the Unitree Go2's L1 lidar.
 
 The stock black cage is bolted to the lidar's **spinning** head. When the robot bumps the lidar into a stair or obstacle, that cage grabs and the lidar stalls. This cage is mounted to the non-spinning parts of the head instead. It's a cage for the cage.
@@ -95,4 +97,4 @@ uv run floor_check.py
 
 ## License
 
-[GPL-3.0](LICENSE). `ref/head_shell_8000.stl` is derived from Unitree's Go2 model via MuJoCo Menagerie and keeps its BSD license, see [`ref/LICENSE-unitree-go2`](ref/LICENSE-unitree-go2).
+[GPL-3.0](LICENSE), except `docs/yodawg.jpg` (the "Yo Dawg" meme template photo). `ref/head_shell_8000.stl` is derived from Unitree's Go2 model via MuJoCo Menagerie and keeps its BSD license, see [`ref/LICENSE-unitree-go2`](ref/LICENSE-unitree-go2).
