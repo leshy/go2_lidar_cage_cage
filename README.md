@@ -61,8 +61,6 @@ The table gives the hit force at which the cage first cracks (p99.9 stress reach
 | side, mid-height | 362 N | 756 N |
 | side, upper corner (45°) | 431 N | 781 N |
 
-"Touches cap" assumes 4 mm of clearance. At the crown it is 3 mm, so scale the top hits by about ¾.
-
 The cage takes about 2.5–3× the robot's weight anywhere before cracking. Full results are in `docs/fea_results.json`.
 
 ![fea](docs/fea.png)
