@@ -18,12 +18,12 @@ One printed piece:
 
 | file | |
 |---|---|
-| `go2-lidar-cage.stl` | print file, ring down, 126 × 126 × 77 mm, 65 cm³ (~85 g PETG) |
-| `go2-lidar-cage.step` | same part as STEP, in the lidar frame (see `assembly.py`) |
-| `assembly.py` | parametric model ([build123d](https://github.com/gumyr/build123d)) |
-| `fea_bumps.py`, `render_bumps.py` | bump FEA and its renders |
-| `floor_check.py` | robot-lying-down floor clearance |
-| `ref/` | decimated Go2 head mesh used as a visual reference in the viewer |
+| [`go2-lidar-cage.stl`](go2-lidar-cage.stl) | print file, ring down, 126 × 126 × 77 mm, 65 cm³ (~85 g PETG) |
+| [`go2-lidar-cage.step`](go2-lidar-cage.step) | same part as STEP, in the lidar frame (see `assembly.py`) |
+| [`assembly.py`](assembly.py) | parametric model ([build123d](https://github.com/gumyr/build123d)) |
+| [`fea_bumps.py`](fea_bumps.py), [`render_bumps.py`](render_bumps.py) | bump FEA and its renders |
+| [`floor_check.py`](floor_check.py) | robot-lying-down floor clearance |
+| [`ref/`](ref/) | decimated Go2 head mesh used as a visual reference in the viewer |
 
 ## Print and hardware
 
