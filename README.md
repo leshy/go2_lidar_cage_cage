@@ -1,7 +1,5 @@
 # Go2 lidar cage cage
 
-![yo dawg](docs/yodawg.jpg)
-
 A fixed, 3D-printed outer cage for the Unitree Go2's L1 lidar.
 
 The stock black cage is bolted to the lidar's **spinning** head. When the robot bumps the lidar into a stair or obstacle, that cage grabs and the lidar stalls. This cage is mounted to the non-spinning parts of the head instead. It's a cage for the cage.
