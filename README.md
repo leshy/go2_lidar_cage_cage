@@ -80,6 +80,12 @@ khana view   assembly.py:build_view      # into the viewer (head mesh + floor sh
 khana export assembly.py:build_print     # -> outputs/assembly-build_print/assembly.{stl,step}
 ```
 
+Tests (fit asserts, floor clearance, committed STL matches the model; also run on every push):
+
+```sh
+uv run --python 3.13 --with git+https://github.com/cyberchitta/cad-khana --with pytest pytest
+```
+
 `floor_check.py` and `ref/remesh_head.py` need the Go2 meshes from [mujoco_menagerie](https://github.com/google-deepmind/mujoco_menagerie/tree/main/unitree_go2):
 
 ```sh
