@@ -1,0 +1,7 @@
+__pycache__/
+outputs/
+out/
+photos/
+cage.forge.js
+ref/base_*.obj
+ref/head_shell_lidar_frame.stl
